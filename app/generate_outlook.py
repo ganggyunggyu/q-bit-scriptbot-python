@@ -68,8 +68,6 @@ def generate_outlook_by_field(field_name: str) -> str:
     return domain_templates.get(field_name, "관련 분야에서 자격을 바탕으로 다양한 기술직 또는 관리직으로 진출이 가능합니다.")
 
 
-import re
-
 def generate_outlook(cert_data: dict) -> str:
     name = cert_data.get("jmfldnm", "이 자격증")
     series = cert_data.get("seriesnm", "")
