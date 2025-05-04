@@ -1,5 +1,24 @@
-venv
-.env
+# 가상환경
+venv/
+.venv/
 
-app/__pycache__
-scripts/__pycache__
+# 환경 설정
+.env
+.env.*
+
+# Python 컴파일 캐시
+__pycache__/
+*.py[cod]
+
+# 에디터 설정/캐시
+.vscode/
+.idea/
+
+# 로그파일
+*.log
+
+# OS 관련
+.DS_Store
+
+# MongoDB dump (혹시 백업 뜨면)
+dump/
