@@ -107,4 +107,4 @@ cert = {
     "mdobligfldnm": "자동차"
 }
 
-# print(generate_outlook(cert))
+print(generate_outlook(cert))

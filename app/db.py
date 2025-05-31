@@ -1,7 +1,9 @@
 from pymongo import MongoClient
 from typing import List, Dict
 from .config import MONGO_URI, MONGO_DB, MONGO_COLLECTION
-from tqdm import tqdm  # 추가
+from .generate_outlook import generate_outlook  
+from .guess_exam_agency import guess_exam_agency
+from tqdm import tqdm
 
 client = MongoClient(MONGO_URI)
 db = client[MONGO_DB]
@@ -15,6 +17,10 @@ def insert_items(items: List[Dict]) -> None:
 
     inserted_count = 0
     for item in tqdm(items, desc="🚚 MongoDB 저장 중", unit="item"):
+        
+        item["outlook"] = generate_outlook(item)  
+        item["agency"] = guess_exam_agency(item['jmfldnm'])  
+
         filter_query = {"jmcd": item.get("jmcd")}  
         update_doc = {"$set": item}
 
