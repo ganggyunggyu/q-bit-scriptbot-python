@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 def xml_to_json(xml_bytes: bytes):
     root = ET.fromstring(xml_bytes)
+    
     items = root.findall(".//item")
     result = []
 
